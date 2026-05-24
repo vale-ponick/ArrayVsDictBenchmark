@@ -55,12 +55,14 @@ for citizen in street {
 // 8️⃣ Генерируем 100 случайных паспортов
 let randomPassports = (1...10000).shuffled().prefix(100)
 
-// 9️⃣ Функция замера времени
+// 9️⃣ Функция замера времени выполнения любого блока кода
+// Параметр: block — код, который нужно измерить (например, поиск в массиве)
+// Возвращает: количество секунд, которое выполнялся блок (Double)
 func measureTime(_ block: () -> Void) -> Double {
-    let start = CFAbsoluteTimeGetCurrent()
-    block()
-    let end = CFAbsoluteTimeGetCurrent()
-    return end - start
+    let start = CFAbsoluteTimeGetCurrent()  // время "до"
+    block()                                  // выполняем переданный код
+    let end = CFAbsoluteTimeGetCurrent()    // время "после"
+    return end - start                      // разница = время выполнения
 }
 
 // 🔟 Функция красивого вывода
